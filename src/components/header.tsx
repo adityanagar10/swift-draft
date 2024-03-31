@@ -17,13 +17,13 @@ export default function Header() {
             <NotebookIcon className='h-6 w-6' />
           </Link>
           <Link
-            href='#'
+            href='/'
             className='text-muted-foreground transition-colors hover:text-foreground'
           >
             Home
           </Link>
           <Link
-            href='#features'
+            href='/#features'
             className='text-muted-foreground transition-colors hover:text-foreground'
           >
             Features

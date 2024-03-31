@@ -1,6 +1,15 @@
 import Header from "@/components/header";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Home() {
   return (
@@ -19,6 +28,45 @@ export default function Home() {
         >
           Take Notes
         </Link>
+        <Carousel className='w-full max-w-screen-lg mt-20'>
+          <CarouselContent className='-ml-1'>
+            <CarouselItem className='pl-1 md:w-1/3 lg:w-1/3'>
+              <div className='p-1'>
+                <Image
+                  src='/assets/image-1.png'
+                  alt='Description of your image'
+                  width={500}
+                  height={300}
+                  className='w-full h-full object-cover rounded-lg shadow-md'
+                />
+              </div>
+            </CarouselItem>
+            <CarouselItem className='pl-1 md:w-1/3 lg:w-1/3'>
+              <div className='p-1'>
+                <Image
+                  src='/assets/image-2.png'
+                  alt='Description of your image'
+                  width={500}
+                  height={300}
+                  className='w-full h-full object-cover rounded-lg shadow-md'
+                />
+              </div>
+            </CarouselItem>
+            <CarouselItem className='pl-1 md:w-1/3 lg:w-1/3'>
+              <div className='p-1'>
+                <Image
+                  src='/assets/image-3.png'
+                  alt='Description of your image'
+                  width={500}
+                  height={300}
+                  className='w-full h-full object-cover rounded-lg shadow-md'
+                />
+              </div>
+            </CarouselItem>
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
         <section id='features' className='max-w-4xl mt-12 px-4'>
           <h2 className='text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-8'>
             Key Features
@@ -45,16 +93,43 @@ export default function Home() {
             <div className='flex items-center'>
               <div>
                 <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-                  Free To Use*
+                  Free To Use
                 </h3>
                 <p className='text-gray-700'>
-                  All the important feature works without payment
+                  Important features without payment
                 </p>
               </div>
             </div>
           </div>
         </section>
       </div>
+      <footer className='bg-black text-white p-20'>
+        <div className='container mx-auto flex flex-col justify-between items-center'>
+          <div>
+            <h2 className='text-xl'>New Features, Coming soon</h2>
+            <p className='text-sm'>Made with 🤍 by Aditya</p>
+          </div>
+          <div>
+            {/* <ul className='flex space-x-4 flex-col justify-center'>
+              <li>
+                <Link href='#' className='hover:text-gray-400'>
+                  Link 1
+                </Link>
+              </li>
+              <li>
+                <Link href='#' className='hover:text-gray-400'>
+                  Link 2
+                </Link>
+              </li>
+              <li>
+                <Link href='#' className='hover:text-gray-400'>
+                  Link 3
+                </Link>
+              </li>
+            </ul> */}
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
