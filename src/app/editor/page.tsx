@@ -1,15 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import EditorJS from "@editorjs/editorjs";
+import EditorJS, { OutputData } from "@editorjs/editorjs";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import Sidebar from "@/components/sidebar";
 import Header from "@/components/header";
 
 export default function Editor() {
   const [isMounted, setIsMounted] = useState(false);
-  const [noteContent, setNoteContent] = useState("");
+  const [noteContent, setNoteContent] = useState<OutputData>();
   const ref = useRef<EditorJS>();
 
   const loadNoteContentFromLocalStorage = () => {
@@ -85,15 +84,15 @@ export default function Editor() {
   return (
     <div>
       <Header />
-      <div className='grid min-h-screen w-full'>
+      <div className="grid min-h-screen w-full">
         {/* <Sidebar /> */}
         <div>
           <div
-            id='editorjs'
-            className='prose max-w-full max-h-screen sm:p-10'
+            id="editorjs"
+            className="prose max-w-full max-h-screen sm:p-10"
           />
-          <div className='fixed bottom-0 left-0 right-0 p-4 bg-white'>
-            <Button className='w-full' onClick={() => save()}>
+          <div className="fixed bottom-0 left-0 right-0 p-4 bg-white">
+            <Button className="w-full" onClick={() => save()}>
               Save Note
             </Button>
           </div>
