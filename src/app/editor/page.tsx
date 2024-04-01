@@ -26,8 +26,6 @@ export default function Editor() {
     }
   };
 
-  console.log(noteContent);
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const initializeEditor = async () => {
     const EditorJS = (await import("@editorjs/editorjs")).default;
@@ -106,17 +104,17 @@ export default function Editor() {
   return (
     <div>
       <Header />
-      <div className='grid max-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]'>
-        <div className=''>
+      <div className="grid max-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+        <div className="">
           <Sidebar createNewNote={createNewNote} getNoteById={getNoteById} />
         </div>
-        <div className='relative'>
+        <div className="relative">
           <div
-            id='editorjs'
-            className='prose max-w-full max-h-screen sm:p-10'
+            id="editorjs"
+            className="prose max-w-full max-h-screen sm:p-10"
           />
-          <div className='fixed bottom-0 left-0 right-0 p-4 bg-white'>
-            <Button className='w-full' onClick={() => save()}>
+          <div className="fixed bottom-0 left-0 right-0 p-4 bg-white">
+            <Button className="w-full" onClick={() => save()}>
               Save Note
             </Button>
           </div>

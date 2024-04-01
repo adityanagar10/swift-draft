@@ -4,10 +4,13 @@ import { toast } from "sonner";
 import { v4 as uuidv4 } from "uuid";
 
 export function getSavedNotes(id?: string) {
-  const storedContent = JSON.parse(localStorage.getItem("noteContent") || "[]");
+  if (typeof window === "undefined") return;
+  const storedContent = JSON.parse(
+    window.localStorage.getItem("noteContent") || "[]",
+  );
   if (id) {
     const existingNoteIndex = storedContent.findIndex(
-      (note: NoteContent) => note.id === id
+      (note: NoteContent) => note.id === id,
     );
     return storedContent[existingNoteIndex];
   }
@@ -21,9 +24,10 @@ export function saveNotes({
   noteContent: OutputData;
   id?: string;
 }) {
+  if (typeof window === "undefined") return;
   let parsedStoredContent = [];
   let updatedNote;
-  const storedContent = localStorage.getItem("noteContent");
+  const storedContent = window.localStorage.getItem("noteContent");
 
   if (storedContent) {
     parsedStoredContent = JSON.parse(storedContent);
@@ -35,7 +39,7 @@ export function saveNotes({
   }
 
   const existingNoteIndex = parsedStoredContent.findIndex(
-    (note: NoteContent) => note.id === id
+    (note: NoteContent) => note.id === id,
   );
 
   if (existingNoteIndex !== -1) {
@@ -55,7 +59,10 @@ export function saveNotes({
     updatedNote = newNote;
   }
 
-  localStorage.setItem("noteContent", JSON.stringify(parsedStoredContent));
+  window.localStorage.setItem(
+    "noteContent",
+    JSON.stringify(parsedStoredContent),
+  );
   toast("Your Note is saved!");
   return updatedNote;
 }
