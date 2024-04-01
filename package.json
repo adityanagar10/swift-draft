@@ -17,6 +17,7 @@
     "@editorjs/table": "^2.3.0",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
+    "@types/uuid": "^9.0.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "editorjs-react-renderer": "^3.5.1",
