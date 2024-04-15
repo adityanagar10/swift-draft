@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "SwiftDrafts",
-  description: "SwiftDrafts is a simple note taking application",
+  description: "SwiftDrafts: Your Digital Napkin Companion!",
 };
 
 export default function RootLayout({
